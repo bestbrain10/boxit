@@ -3,7 +3,6 @@ const router = express.Router();
 const $sql = require('sequelize');
 const item = require('../models/item');
 router.get('/',function(req,res,next){
-    res.setHeader('Access-Control-Allow-Origin','*');
     item.findAll().then((data)=>{
 
             res.json(data);
