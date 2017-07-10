@@ -1,6 +1,9 @@
 # BoxitMain
 It is a simple Diary app, where you can record memorable moment. It is built with angular 4 and Node(Express)Js, with mysql(using `sequelize` as ORM).
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.1. 
+## Database
+Create a diary database on your mysql db client before running the app to enable it use the api
+
 
 ## Development server
 
