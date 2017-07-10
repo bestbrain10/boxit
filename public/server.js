@@ -12,10 +12,14 @@ app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
-var dir = __dirname + '/files';
-if (!path.existsSync(dir)) {
-    fs.mkdirSync(dir, 0744);
+
+
+var dir = './files';
+if (!fs.existsSync(dir)){
+    fs.mkdirSync(dir);
 }
+
+
 app.use('/files',express.static(path.join(__dirname, 'files')));
 app.use('/assets',express.static(path.join(__dirname, 'assets')));
 app.use('/',express.static(path.join(__dirname, 'view')));
