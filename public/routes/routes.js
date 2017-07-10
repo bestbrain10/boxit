@@ -13,7 +13,7 @@ router.get('/',function(req,res,next){
     });
 });
 router.get('/:id',function(req,res,next){
-	res.setHeader('Access-Control-Allow-Origin','*');
+	
     item.findById(req.params.id).then((data)=>{
             res.statusCode = data ?200: 404;
             res.json(data);
@@ -26,8 +26,6 @@ router.get('/:id',function(req,res,next){
 
 
 router.post('/',function(req,res,next){
-	res.setHeader('Access-Control-Allow-Origin','*');
-	console.log(req.body,req.files);
     if(req.body && req.files && req.files['file']){
         if(req.files['file'].mimetype.split('/')[0] === 'image'){
             req.body['file'] = req.files['file'].name;
@@ -54,7 +52,7 @@ router.post('/',function(req,res,next){
 });
 
 router.put('/:id',function(req,res,next){
-	res.setHeader('Access-Control-Allow-Origin','*');
+	
     if(req.files && req.files['file']){
         if(req.files['file'].mimetype.split('/')[0] === 'image'){
              req.body['file'] = req.files['file'].name;
@@ -78,7 +76,7 @@ router.put('/:id',function(req,res,next){
 
 
 router.delete('/:id',function(req,res,next){
-	res.setHeader('Access-Control-Allow-Origin','*');
+	
     item.destroy({where: {id: req.params.id}}).then((data)=>{
         res.statusCode = 210;
         res.json(data);
